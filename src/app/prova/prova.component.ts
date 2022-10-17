@@ -7,6 +7,16 @@ import { Component, OnInit, AfterContentChecked, AfterContentInit, AfterViewInit
 })
 export class ProvaComponent implements OnInit, AfterContentChecked, AfterContentInit, AfterViewInit, AfterViewChecked, DoCheck, OnDestroy {
 
+  cani = [
+    {nome:'Roger',
+    razza:'golden',
+    descrizione:`The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+    bred for hunting.`}
+  ]
+
+  isDisabled = true
+
   constructor() {
     console.log("costruttore")
   }

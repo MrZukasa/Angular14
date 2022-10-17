@@ -70,6 +70,6 @@ Il data biding collega la View col Model fondamentalmente.
 
 Il data binding chiaramente esiste one e two way, e per farlo esistono 4 modi:
 - `string interpolation` ossia mettere la variabile nella view con le graffe `{{variabile}}`
-- `property binding` ossia con le proprietà dell'html, ad esempio cambiare i colori del testo.
+- `property binding` ossia con le proprietà dell'html, ad esempio cambiare i colori del testo. Per esempio `[disabled]='isDisabled'`.
 - `event binding` ossia eventi che vengono avviati dalla view e si riperquotono nel model.
 - `two way binding` bhe ci sono mille esempi per questo tipo di cosa.
