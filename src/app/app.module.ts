@@ -6,18 +6,21 @@ import { AppComponent } from './app.component';
 import { ProvaComponent } from './prova/prova.component';
 import { EventComponent } from './event/event.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
+import { PersoneComponent } from './persone/persone.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ProvaComponent,
-    EventComponent
+    EventComponent,
+    PersoneComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import {MatInputModule} from '@angular/material/input';
     MatSliderModule,
     MatCardModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

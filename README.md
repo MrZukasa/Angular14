@@ -73,3 +73,33 @@ Il data binding chiaramente esiste one e two way, e per farlo esistono 4 modi:
 - `property binding` ossia con le proprietà dell'html, ad esempio cambiare i colori del testo. Per esempio `[disabled]='isDisabled'`.
 - `event binding` ossia eventi che vengono avviati dalla view e si riperquotono nel model.
 - `two way binding` bhe ci sono mille esempi per questo tipo di cosa.
+
+### Directives
+- Sono classi che servono per essere messe nel DOM per cambiare il comportamento degli elementi, ad esempio `ngModel`.
+- Si dividono in tre categorie,
+  - Built-in ad esempio ngClass, ngStyle, ngModel cose che modificano il comportamento dell'oggetto
+  - Attribute che modificano il comportamento o apparenza di un elemento, come ad esempio può essere disabled
+  - Structural scritte con l'asterisco e cambiano il DOM aggiungendo o rimuovendo elementi, ad esempio *ngIf, *ngFor
+
+#### *ngIf
+Semplice direi:
+- `<p *ngIf="4<5">Paragrafo!</p>` Appare
+- `<p *ngIf="6<5">Paragrafo!</p>` Non appare
+
+Le cose iniziano a diventare interesanti quando si parla dell'else e dei template.
+
+Posso renderizzare delle condizioni inserendo il codice dell'else dentro un nuovo blocco di codice:
+```html
+<p *ngIf="isVisible; then bloccoIf else bloccoElse"></p>
+<ng-template #bloccoIf>
+  <p>Sono visibile</p>
+</ng-template>
+<ng-template #bloccoElse>
+  <p>non sono visibile</p>
+</ng-template>
+```
+>ng-template è un wrapper!
+
+#### *ngFor
+
+Vedi codice sorgente

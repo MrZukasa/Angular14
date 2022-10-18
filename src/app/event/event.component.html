@@ -3,5 +3,11 @@
   <mat-label>Favorite food</mat-label>
   <input matInput placeholder="Ex. Pizza" (input)="onClick($event)">
 </mat-form-field>
+<button mat-raised-button color="primary" (click)="onClick2($event)">Cliccami</button>
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>2 way binding</mat-label>
+  <input matInput placeholder="Ex. Pizza" [(ngModel)]="title">
+</mat-form-field>
+<p>{{title}}</p>
 
 
