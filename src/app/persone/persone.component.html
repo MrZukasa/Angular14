@@ -1,5 +1,26 @@
 <ul>
   <li *ngFor="let persona of persone; index as i">
-    {{persona.nome}} - {{persona.cognome}} - {{i}}
+    <div class="cerchio" [ngStyle]="{'background':getColor(persona)}"></div>
+    <p>{{persona.nome}} {{persona.cognome}} {{i}}</p>
   </li>
 </ul>
+<div><p>Fatto con ngClass</p></div>
+<ul>
+  <li *ngFor="let persona of persone; index as i">
+    <div class="cerchio" [ngClass]="persona.isOnline ? 'cerchioOnline':'cerchioOffline'">{{i}}</div>
+    <p>{{persona.nome}} {{persona.cognome}}</p>
+  </li>
+</ul>
+
+<app-child [data]="persone"></app-child>
+<button (click)="cliccato()">Cambia nome</button>
+
+<div> Esempio di if
+  <div [ngSwitch]="numero" style="margin: 10px;">
+    <div *ngSwitchCase="1">1</div>
+    <div *ngSwitchCase="2">2</div>
+    <div *ngSwitchCase="3">3</div>
+    <div *ngSwitchCase="4">4</div>
+    <div *ngSwitchDefault>Default</div>
+  </div>
+</div>

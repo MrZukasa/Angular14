@@ -100,6 +100,17 @@ Posso renderizzare delle condizioni inserendo il codice dell'else dentro un nuov
 ```
 >ng-template è un wrapper!
 
-#### *ngFor
+#### *ngFor, *ngSwitch, *ngStyle
 
 Vedi codice sorgente
+
+#### ngClass
+Esempio nel codice, ma tanto non so a quanto possa servire per lo stile, usando un framework CSS
+
+### Passare dati da Parent a Chiild
+qui le cose si fanno più interessanti dai, o perlomeno utili!
+
+Anche qui guardare il codice, mi sono preso alcune libertà dall'esempio, io non ho richiamato un componente che stava dentro AppComponent, ma ho proprio richiamato da un componente ad un altro.
+
+Che senso ha richiamare qualcosa che sta nella root se tanto la struttura non avrà mai nulla nella root!?
+Oltretutto aggiungendo l'evento `Onchanges` riesco a riscrivere i dati cambiati

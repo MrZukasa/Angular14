@@ -1,0 +1,4 @@
+<div>Passaggio di parametri da Persone a Child</div>
+<div *ngFor="let persona of data">
+  <p [ngStyle]="{color:persona.color, marginLeft:'50px'}">{{persona.nome}} {{persona.cognome}}</p>
+</div>

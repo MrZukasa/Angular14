@@ -13,6 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { PersoneComponent } from './persone/persone.component';
+import { ChildComponent } from './child/child.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { PersoneComponent } from './persone/persone.component';
     AppComponent,
     ProvaComponent,
     EventComponent,
-    PersoneComponent
+    PersoneComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,
