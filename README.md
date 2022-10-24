@@ -107,10 +107,21 @@ Vedi codice sorgente
 #### ngClass
 Esempio nel codice, ma tanto non so a quanto possa servire per lo stile, usando un framework CSS
 
-### Passare dati da Parent a Chiild
+### Passare dati da Parent a Chiild e viceversa
 qui le cose si fanno più interessanti dai, o perlomeno utili!
 
 Anche qui guardare il codice, mi sono preso alcune libertà dall'esempio, io non ho richiamato un componente che stava dentro AppComponent, ma ho proprio richiamato da un componente ad un altro.
 
 Che senso ha richiamare qualcosa che sta nella root se tanto la struttura non avrà mai nulla nella root!?
-Oltretutto aggiungendo l'evento `Onchanges` riesco a riscrivere i dati cambiati
+Oltretutto aggiungendo l'evento `Onchanges` riesco a riscrivere i dati cambiati.
+> SI ma non funziona tra parenti sibling, funziona solo da figlio a padre, tra sibling si deve comunque fare col metodo @Input e con il property binding.
+>> questa roba fa schifo! 🤮
+
+### Usare i Template
+
+Nell'html si fa `<input #inputSaluti value='ciao'>` e nel component.ts si fa `@ViewChild('inputSaluti') valoreInput!: ElementRef` e significa che nella view deve associare al __figlio della view__ un valore.
+
+Il punto esclamativo dopo il nome della variabile serve ad confermare a Typescript che questa variabile non sarà mai null, altrimenti l'ElementRef va in errore.
+> chiaramente la variabile avrà un valore dopo che la view è stata renderizzata!!
+
+Considerando che la variabile valoreInput è di tipo ElementRef che a sua volta è un riferimento ad una classe, devo cercare il vero valore in `valoreInput.nativeElement.value`

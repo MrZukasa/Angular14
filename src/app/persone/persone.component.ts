@@ -1,11 +1,11 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-persone',
   templateUrl: './persone.component.html',
   styleUrls: ['./persone.component.css']
 })
-export class PersoneComponent implements OnInit, OnChanges {
+export class PersoneComponent implements OnInit {
 
   persone = [
     {nome: "luca", cognome: "rossi", isOnline: true, color:'red'},
@@ -15,10 +15,10 @@ export class PersoneComponent implements OnInit, OnChanges {
 
   numero = 3
 
+  @Output() sendDataEvent = new EventEmitter<string>();
+  nomignolo = 'Hood';
+
   constructor() { }
-  ngOnChanges(changes: SimpleChanges): void {
-    throw new Error('Method not implemented.');
-  }
 
   ngOnInit(): void {
   }
@@ -29,6 +29,10 @@ export class PersoneComponent implements OnInit, OnChanges {
       {nome: "Susanna", cognome: "verdi", isOnline: true, color: 'green'},
       {nome: "Kaleb", cognome: "neri", isOnline: false, color: 'orange'},
     ]
+  }
+
+  sendData(){
+    this.sendDataEvent.emit(this.nomignolo);
   }
 
   getColor(persona: any){
