@@ -124,4 +124,20 @@ Nell'html si fa `<input #inputSaluti value='ciao'>` e nel component.ts si fa `@V
 Il punto esclamativo dopo il nome della variabile serve ad confermare a Typescript che questa variabile non sarà mai null, altrimenti l'ElementRef va in errore.
 > chiaramente la variabile avrà un valore dopo che la view è stata renderizzata!!
 
-Considerando che la variabile valoreInput è di tipo ElementRef che a sua volta è un riferimento ad una classe, devo cercare il vero valore in `valoreInput.nativeElement.value`
+Considerando che la variabile `valoreInput` è di tipo `ElementRef` che a sua volta è un riferimento ad una classe, devo cercare il vero valore in `valoreInput.nativeElement.value`
+
+> è possibile fare anche una cosa cosi `@ViewChild('inputSaluti') valoreInput!: ElementRef<HTMLInputElement>` per essere più specifici dato che sto usando Typescript
+
+### Creare Direttive
+
+- Creare direttive
+  - per creare la direttiva si usa `ng g d nomedirettiva`
+  - vedi codice in [highlight.directive.ts](../Angular14/src/app/drettive/highlight/highlight.directive.ts)
+  - con `HostListener` creo un listener che ascolta un evento custom
+- Passare dati alle direttive
+  - per passare i dati alle direttive si usa `@Input()` vedi codice [highlight.directive.ts](../Angular14/src/app/drettive/highlight/highlight.directive.ts) e in [app.module.ts](./src/app/app.module.ts) e in [app.component.ts](app/../src/app/app.component.ts)
+  - la direttiva se inserita in un databinding diventa essa stessa la proprietà.
+- Aggiungere una seconda proprietà
+  - aggiungere una proprietà in @Input che non sia chiaramente il nome del selettore
+
+### Pipes

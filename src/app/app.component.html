@@ -1,3 +1,15 @@
 <app-prova></app-prova>
 <app-event></app-event>
 <app-persone (sendDataEvent)="onReceiveData($event)"></app-persone>
+
+<h2>
+  <div>
+    <input type="radio" nome="coloreevid" (click)="cambiacoloreevidenziatore('red')">Rosso
+    <input type="radio" nome="coloreevid" (click)="cambiacoloreevidenziatore('pink')">Rosa
+    <input type="radio" nome="coloreevid" (click)="cambiacoloreevidenziatore('purple')">Viola
+  </div>
+</h2>
+
+<p [appHighlight]="colore" defaultColor="blue">Prova della direttiva</p>
+<p [appHighlight]="colore" defaultColor="gray">Prova della direttiva</p>
+<p [appHighlight]="colore" defaultColor="green">Prova della direttiva</p>

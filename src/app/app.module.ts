@@ -14,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { PersoneComponent } from './persone/persone.component';
 import { ChildComponent } from './child/child.component';
+import { HighlightDirective } from './drettive/highlight/highlight.directive';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ChildComponent } from './child/child.component';
     ProvaComponent,
     EventComponent,
     PersoneComponent,
-    ChildComponent
+    ChildComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
