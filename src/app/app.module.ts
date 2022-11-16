@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { PersoneComponent } from './persone/persone.component';
 import { ChildComponent } from './child/child.component';
 import { HighlightDirective } from './drettive/highlight/highlight.directive';
+import { ServizioProvaService } from './servizi/servizio-prova.service';
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import { HighlightDirective } from './drettive/highlight/highlight.directive';
     MatInputModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [ServizioProvaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

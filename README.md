@@ -141,3 +141,22 @@ Considerando che la variabile `valoreInput` è di tipo `ElementRef` che a sua vo
   - aggiungere una proprietà in @Input che non sia chiaramente il nome del selettore
 
 ### Pipes
+- Funzioni da usare in string interpolation (esempio nel codice)
+  - Uppercase
+  - Lowercase
+  - datapipe (per date)
+  - decimalpipe, percentagepipe
+  - currencypipe
+
+### Services
+Servono a spostare la logica dei componenti dentro un servizio appunto.
+Solitamente i componenti servono solo a fare vedere roba, la logica sta nel service.
+
+Si generano con `ng g s nomeservizio` nulla di grave.
+
+I servizi si aggiungono nella [app.module.ts](src/app/app.module.ts) sotto la voce `providers:[]`
+
+Nel costruttore di un componente si può importare il servizio cosi:
+`constructor( servizioProva: ServizioProvaService) {}`
+
+### Routing

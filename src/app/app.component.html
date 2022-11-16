@@ -13,3 +13,10 @@
 <p [appHighlight]="colore" defaultColor="blue">Prova della direttiva</p>
 <p [appHighlight]="colore" defaultColor="gray">Prova della direttiva</p>
 <p [appHighlight]="colore" defaultColor="green">Prova della direttiva</p>
+
+<h2>Pipe</h2>
+<p>Ciao benvenuti al {{title | uppercase}}</p>
+<p>Data di oggi {{oggi | date }}</p>
+<p>ecco un numero {{numero | number: '1.2-2'}}</p>
+<p>ecco una percentuale {{numero | percent: '1.2'}}</p>
+<p>valuta {{numero | currency: 'EUR'}}</p>

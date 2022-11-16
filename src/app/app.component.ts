@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Angular14';
   colore ='';
+  numero = 5.324;
+  oggi = Date.now()
 
   onReceiveData(value: string){
     console.log(value)

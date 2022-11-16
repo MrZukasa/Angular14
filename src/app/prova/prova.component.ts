@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterContentChecked, AfterContentInit, AfterViewInit, AfterViewChecked, DoCheck, OnDestroy } from '@angular/core';
+import { ServizioProvaService } from '../servizi/servizio-prova.service';
 
 @Component({
   selector: 'app-prova',
@@ -17,7 +18,7 @@ export class ProvaComponent implements OnInit, AfterContentChecked, AfterContent
 
   isDisabled = true
 
-  constructor() {
+  constructor(private servizioProva: ServizioProvaService) {
     console.log("costruttore")
   }
   ngAfterContentChecked(): void {
@@ -40,6 +41,7 @@ export class ProvaComponent implements OnInit, AfterContentChecked, AfterContent
   }
 
   ngOnInit(): void {
-    console.log("ngOnInit")
+    console.log("ngOnInit");
+    console.log(this.servizioProva.persone);
   }
 }
