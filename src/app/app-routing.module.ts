@@ -8,13 +8,14 @@ import { HomeComponent } from './componenti/home/home.component';
 import { NotfoundComponent } from './componenti/notfound/notfound.component';
 import { PersoneComponent } from './componenti/persone/persone.component';
 import { ProvaComponent } from './componenti/prova/prova.component';
+import { AuthGuard } from './servizi/auth.guard';
 
 const routes: Routes = [
   { path:'', component: HomeComponent },
   { path:'prova', component: ProvaComponent },
   { path:'event', component: EventComponent },
   { path:'persone', component: PersoneComponent },
-  { path:'contatti', component: ContattiComponent, children: [
+  { path:'contatti', component: ContattiComponent, canActivate: [AuthGuard], canActivateChild: [AuthGuard], children: [
     { path:':id', component: ContattoComponent },
   ] },
   { path: '404', component: NotfoundComponent},

@@ -183,4 +183,21 @@ Se si fa il routing di una route figlio però le cose cambiano un sacco!
 
 ### Routing Guard
 Servizio di [autenticazione](src/app/servizi/auth.service.ts) per evitare che tutti possano accedere a tutte le route, ma solo i loggati.
-E' necessario anche creare una [Guard](src/app/servizi/auth.guard.ts) con `ng g guard auth`
+E' necessario anche creare una [Guard](src/app/servizi/auth.guard.ts) con `ng g guard auth`.
+
+Una volta fatto questo si va ad assegnare alla route che voglio sorvegliare la proprietà `canActivate: [AuthGuard]`  con il relativo file che farà da guardia, aspettandosi un autenticazione avvenuta e passatagli dal servizio auth.service.ts.
+
+Stessa cosa vale per la gestione di un ruolo, che sarà un autenticazione dentro l'altra fondamentalmente, solo gestita con `canActivateChild: [AuthGuard]`.
+
+### Observable
+Sono tipi di variabile messi a disposizione dalla libreria RxJs, come ad esempio `interval()` dentro [app.component.ts](src/app/app.component.ts) che è una sorta di timer che genera un observable number al quale possiamo sottoscriverci per richiedere una specifica azione.
+Tutto questo per dire che agli observable è possibile sottoscriversi!!
+
+Tutte le sottoscrizioni che faccio rimangono attive anche durante il cambio di pagina con il route, quindi quando una sottoscrizione non serve, va stoppata.
+
+Per fare questo bisogna mettere l'unsubscribe sull' ngOnDestroy della pagina.
+```
+ngOnDestroy(): void {
+    this.sottoscrizione.unsubscribe()
+  }
+```
