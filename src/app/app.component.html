@@ -1,3 +1,11 @@
+<a routerLink="/" style="margin-right: 10px;">Home</a>
+<a routerLink="prova" style="margin-right: 10px;">Prova</a>
+<a routerLink="event"style="margin-right: 10px;" >Event</a>
+<a routerLink="persone" style="margin-right: 10px;">Persone</a>
+<a routerLink="contatti" style="margin-right: 10px;">Contatti</a>
+<hr>
+<router-outlet></router-outlet>
+
 <app-prova></app-prova>
 <app-event></app-event>
 <app-persone (sendDataEvent)="onReceiveData($event)"></app-persone>

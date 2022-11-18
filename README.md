@@ -160,3 +160,27 @@ Nel costruttore di un componente si può importare il servizio cosi:
 `constructor( servizioProva: ServizioProvaService) {}`
 
 ### Routing
+L'app routing è a tutti gli effetti un modulo, quindi fa importato come tale, soltamente tanto quando si crea l'app si crea anche questo modulo.
+Una volta definito il routing in [app-routing.module.ts](src/app/app-routing.module.ts) si aggiunge il tag `<router-outlet></router-outlet>` dove avverrà la magia.
+
+Per fare le cose n maniera più cristiana si usa `routerLink` vedi [app.component.html](src/app/app.component.html).
+
+E' possibile aggiungere parametri al routing, stile ID, vedi codice.
+Fondamentalmente è necessario usare l'`ActivatedRoute` importandolo nel costruttore e poi usando il metodo `this.route.snapshot.paramMap.get('id')` per consentire al routing di capire che si sta chiedendo il parametro id. Follia.
+
+Adesso il valore dell'id che cerco è contenuto in tutta questa roba qui `this.route.snapshot.paramMap.get('id')`.
+Una cosa più intelligente è assegnare un routerLink ad ogni elemento della lista, facendo muovere solo l'indice dentro il routerLink stesso:
+```
+<div *ngFor="let persona of persone; index as i">
+    <a routerLink="/contatti/{{i}}">
+      <p style="margin-left: 10px;">{{ persona.nome }} {{ persona.cognome }}</p>
+    </a>
+</div>
+```
+>> N.B. Per passare i parametri si fa con il decoratore @Input!!
+
+Se si fa il routing di una route figlio però le cose cambiano un sacco!
+
+### Routing Guard
+Servizio di [autenticazione](src/app/servizi/auth.service.ts) per evitare che tutti possano accedere a tutte le route, ma solo i loggati.
+E' necessario anche creare una [Guard](src/app/servizi/auth.guard.ts) con `ng g guard auth`

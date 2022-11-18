@@ -13,10 +13,12 @@ export class EventComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   onClick(e: Event){
     console.log((<HTMLInputElement>e.target).value);
     this.title=(<HTMLInputElement>e.target).value;
   }
+
   onClick2(e: Event){
     this.title = 'Ho cliccato!';
   }

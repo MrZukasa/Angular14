@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterContentChecked, AfterContentInit, AfterViewInit, AfterViewChecked, DoCheck, OnDestroy } from '@angular/core';
-import { ServizioProvaService } from '../servizi/servizio-prova.service';
+import { ServizioProvaService } from '../../servizi/servizio-prova.service';
 
 @Component({
   selector: 'app-prova',
