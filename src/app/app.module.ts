@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { PersoneComponent } from './componenti/persone/persone.component';
@@ -20,6 +22,8 @@ import { ContattiComponent } from './componenti/contatti/contatti.component';
 import { ContattoComponent } from './componenti/contatto/contatto.component';
 import { NotfoundComponent } from './componenti/notfound/notfound.component';
 import { HomeComponent } from './componenti/home/home.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 
 
 @NgModule({
@@ -44,6 +48,10 @@ import { HomeComponent } from './componenti/home/home.component';
     MatButtonModule,
     MatInputModule,
     FormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [ServizioProvaService],
   bootstrap: [AppComponent]

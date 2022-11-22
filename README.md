@@ -201,3 +201,40 @@ ngOnDestroy(): void {
     this.sottoscrizione.unsubscribe()
   }
 ```
+
+### Template Driven Form
+Qui non si usa form action method, si invia direttamente il contenuto del form da dentro un service.
+Il service chiamerà il modulo HTTP che manda direttamente la roba al backend.
+Per richiamare il form si assenga una variabile template al form stesso `#homeform="ngForm"` cosi facendo posso direttamente aggiungere un evento `(ngSubmit)="onSubmit(homeForm)"`.
+
+Cosi facendo dentro [home.componente.ts](src/app/componenti/home/home.component.ts) posso creare un metodo che si occupa di prendere come parametro il form come tipo `ngForm`.
+
+A fianco ad ogni input nel form è necessario aggiungere `ngModel` cosi da inserire ogni dato dentro un modello di dato di angular (non so sinceramente che senso abbia).
+
+> è possibile avere un decoratore che ti permetta di accedere direttamente al form senza bisogno di crere un parametro nel metodo, ad esempio posso fare:
+> ```ts
+>@ViewChild('homeform') homeform: NgForm
+> onSubmit(form: NgForm){
+>  console.log(this.homeform)
+>}
+>```
+>questo è possibile perché ho inserito la variabile template al form
+
+Il form ha diversi stati, come anche i singoli campi hanno uno stato che gli viene attribuito da angular che aggiunge la classe ng-valid, ng-invalid etc etc...
+Vedere il codice per un esempio di validazione, con tanto di disable del pulsante submit in caso di mancata validità dei campi.
+
+### Reactive Form
+Sono form gestiti interamente nel middleware, quindi in TypeScript.
+Questa roba ha bisogno del `ReactiveFormsModule`. Questo tipo di formsi dichiara come `reactiveForm: FormGroup` in [home.componente.ts](src/app/componenti/home/home.component.ts).
+Anche il form nell'html va bindato al reactiveForm con `<form [formGroup]="reactiveForm">`, anche le singole input vanno bindate con `formControlName="nome"` etc etc..
+
+La validazione qui viene fatta nel middleware appunto, quind in TypeScript ad esempio:
+```ts
+email: new FormControl(null, [Validators.required, Validators.email]),
+```
+
+## Modulo HTTP
+Bisogna importare `import { HttpClientModule } from '@angular/common/http'`
+per avere adelle api da usare con angular ho preso 30 giorni di realtime database su firebase.
+
+Ho creato un servizio per effettuare chiamate http, [firebase.service.ts](src/app/servizi/firebase.service.ts)
